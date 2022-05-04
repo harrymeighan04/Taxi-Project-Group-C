@@ -3,6 +3,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.ArrayList;
 
 /**
  * Model the operation of a taxi company, operating different
@@ -18,7 +19,9 @@ public class TaxiCompany
     // The associations between vehicles and the passengers
     // they are to pick up.
     private Map<Vehicle, Passenger> assignments;
-
+    
+    private ArrayList<Map<Vehicle, Passenger>> bookingList;
+    
     /**
      * Constructor for objects of class TaxiCompany
      */
@@ -26,6 +29,7 @@ public class TaxiCompany
     {
         vehicles = new LinkedList<>();
         assignments = new HashMap<>();
+        bookingList = new ArrayList<>();
     }
 
     /**
@@ -39,6 +43,7 @@ public class TaxiCompany
         if(vehicle != null) {
             assignments.put(vehicle, passenger);
             vehicle.setPickupLocation(passenger.getPickupLocation());
+            bookingList.add(assignments);
             return true;
         }
         else {
@@ -95,4 +100,5 @@ public class TaxiCompany
         }
         return null;
     }
+    
 }

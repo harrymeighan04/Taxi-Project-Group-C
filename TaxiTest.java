@@ -74,6 +74,7 @@ public class TaxiTest
      * Test that a taxi becomes free again after offloading
      * a passenger.
      */
+    @Test
     public void testOffload()
     {
         taxi.pickup(passenger);
@@ -86,6 +87,7 @@ public class TaxiTest
      * Test that a taxi picks up and delivers a passenger within
      * a reasonable number of steps.
      */
+    @Test
     public void testDelivery()
     {
         Location pickupLocation = passenger.getPickupLocation();
