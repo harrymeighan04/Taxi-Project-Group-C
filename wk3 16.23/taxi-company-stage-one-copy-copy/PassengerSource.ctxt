@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=PassengerSource
+comment0.text=\r\n\ Simulate\ passengers\ requesting\ rides\ from\ a\ taxi\ company.\r\n\ Passengers\ should\ be\ generated\ at\ random\ intervals.\r\n\ \r\n\ @author\ David\ J.\ Barnes\ and\ Michael\ K\u00F6lling\r\n\ @version\ 2016.02.29\r\n
+comment1.params=company
+comment1.target=PassengerSource(TaxiCompany)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ PassengerSource.\r\n\ @param\ company\ The\ company\ to\ be\ used.\ Must\ not\ be\ null.\r\n\ @throws\ NullPointerException\ if\ company\ is\ null.\r\n
+comment2.params=
+comment2.target=boolean\ requestPickup()
+comment2.text=\r\n\ Have\ the\ source\ generate\ a\ new\ passenger\ and\r\n\ request\ a\ pickup\ from\ the\ company.\r\n\ @return\ true\ If\ the\ request\ succeeds,\ false\ otherwise.\r\n
+comment3.params=
+comment3.target=Passenger\ createPassenger()
+comment3.text=\r\n\ Create\ a\ new\ passenger.\r\n\ @return\ The\ created\ passenger.\r\n
+numComments=4
