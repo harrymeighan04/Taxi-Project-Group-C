@@ -1,0 +1,37 @@
+16.17
+-The order of steps should tackle similar steps at once to speed up testing for each
+-also fixing functionality before creating a GUI
+
+1)Enable single passenger to be picked up and taken to a destination by a single taxi
+2)Provide sufficient taxi's to enable multiple independent passengers to be picked up and taken to their destinations concurrently 
+3)Enable a single shuttle to pick up one passenger 
+4)enable a single shuttle to pick up mulitple passengers
+5)ensure taxi's and shuttles can operate concurrently 
+6)ensure details of passengers are recorded for whom there are no free vehicles 
+7)provide a GUI to display the activities of all active vehicles and passengers
+8)Remaining functionality 
+
+
+16.18
+Tests
+1) return true when requestPickup()== true
+2) return true if vehicle != NULL
+3) similar to 1
+4) create multiple passenger objects, assign to same vehicle
+5) create multiple passenger and vehicle objects of Taxi and Shuttle,assign pickup at same time
+6)return passenger details if vehicle == NULL
+7) have multiple objects acting at once and run GUI
+
+16.19
+act method affects movement by parsing through target locations and working out of its reached the passengers pickup location of destination
+also determines if the vehicle has an assignment.
+
+16.20
+Yes, it would move from being idle when passenger != Null
+
+16.21
+doesnt support multiple taxis as one taxi would act as a shuttle with multiple passengers
+
+16.22
+assignments.put(Vehicle, Passenger) doesnt support shuttles having multiple passengers with different locations.
+
