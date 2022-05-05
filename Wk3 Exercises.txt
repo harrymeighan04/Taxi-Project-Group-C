@@ -1,9 +1,9 @@
-17)
-18)
-19)
-20)
-21)
-22)
-23)
-24)
-25)
+17) The final point is far too vague, not providing context as to what constitutes as "statistical data", and "Full functionality" entails.
+18) Yes, the tests do seem fairly obvious, with the exclusion of the last point as it is too vague to test anything. For the other developments, you would test a taxi can pick up a passenger, test a shuttle can pick up a passenger, test a shuttle can pick up multiple passengers, test a passenger will be recorded if they cannot be serviced by a taxi or shuttle, and test all taxis and shuttles can function concurrently
+19) The act method within the Taxi class checks to ensure if it has a valid (i.e. non-null) target location, then moves to the next location. If the next location is the target location, it checks if it currently has a passenger onboard, and if so offloads the passenger. If the next location is the target location and it does not have a passenger, then it will initiate the process to pick-up the passenger. If it does not have a target, it will increment the idle counter to signify that it has no purpose in life at that current step and will log exactly how many steps it was idle.
+20) Yes, that would increase the efficiency. It would make sense for vehicles to move between lists when they have no current target, as having no target means it has no destination to either offload or pick up a passenger. This would work for both vehicle subclasses.
+21) As it stands, it cannot manage multiple passengers/destinations as it has a single map. Instead, it would make sense to hold an array to allow a many to one relationship between passengers and vehicles (specifically shuttles)
+22) Having a map would cause issues for shuttle classes that may have multiple passengers each with individual destinations.
+23) Including a booking number or identifier would make tracking of each individual passenger to vehicle relationship much easier, making it possible to view each interaction of a instance of a passenger being delivered to an instance of a location, by a specific instance of a vehicle (either shuttle or Taxi). This would also open up reporting as you could record the status of each booking to determine the current number of occupied (i.e. a vehicle that has no active or pending booking) and unoccupied.
+24) Some tests may still be viable, however if the proposed changes were implemented a number would no longer function without being altered as the structure of the class would be changed so significantly it would require new tests.
+25) ...
