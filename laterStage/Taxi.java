@@ -55,6 +55,7 @@ public class Taxi extends Vehicle implements DrawableItem
         else {
             incrementIdleCount();
         }
+        incrementStepCount();
     }
 
     /**
