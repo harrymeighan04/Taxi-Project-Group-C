@@ -1,0 +1,23 @@
+public void act() {
+        for (int index = 0; index < destinations.size(); index++) {
+            Location target = destinations.get(index);
+            if (target != null) {
+                // Find where to move to next.
+                if (destinations.iterator().hasNext()) {
+                    Location next = destinations.get(index + 1);
+                    setLocation(next);
+                    if (next.equals(target)) {
+                        if (passengers.get(index) != null) {
+                            notifyPassengerArrival(passenger);
+                            offloadPassenger(index);
+                            destinations.remove(index);
+                        } else {
+                            notifyPickupArrival();
+                        }
+                    }
+                } else {
+                    incrementIdleCount();
+                }
+            }
+        }
+    }
