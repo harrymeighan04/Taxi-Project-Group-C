@@ -62,11 +62,15 @@ public class PassengerSource implements Actor
      * @return The number of passengers for whom a pickup
      *         could not be found.
      */
-    public int getMissedPickups()
-    {
-        return missedPickups;
+    public int getMissedPickups(){
+        
+        if(missedPickups != 0){
+            return missedPickups;
+        } else {
+            throw new NullPointerException("The number of passangers us null, please try again.");
+        }
     }
-
+    
     /**
      * Create a new passenger with distinct pickup and
      * destination locations.

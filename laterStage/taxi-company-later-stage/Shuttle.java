@@ -48,10 +48,14 @@ public class Shuttle extends Vehicle
      * Receive a pickup location.
      * @param location The pickup location.
      */
-    public void setPickupLocation(Location location)
-    {
-        destinations.add(location);
-        chooseTargetLocation();
+    public void setPickupLocation(Location location){
+        
+        if(location == null) {
+            throw new NullPointerException("Location is null, please try again.");
+        } else {
+            destinations.add(location);
+            chooseTargetLocation();
+        }
     }
     
     /**
@@ -59,13 +63,17 @@ public class Shuttle extends Vehicle
      * Add their destination to the list.
      * @param passenger The passenger.
      */
-    public void pickup(Passenger passenger)
-    {
-        passengers.add(passenger);
-        destinations.add(passenger.getDestination());
-        chooseTargetLocation();
+    public void pickup(Passenger passenger){
+        
+        if(passenger == null) {
+            throw new NullPointerException("Passenger is null, please try again.");
+        } else {
+            passengers.add(passenger);
+            destinations.add(passenger.getDestination());
+            chooseTargetLocation();
+        }
     }
-
+    
     /**
      * Decide where to go next, based on the list of
      * possible destinations.

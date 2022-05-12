@@ -80,9 +80,12 @@ public class TaxiCompany
     /**
      * @return The list of vehicles.
      */
-    public List<Vehicle> getVehicles()
-    {
+    public List<Vehicle> getVehicles(){
+        if(vehicles.isEmpty() == false){
         return vehicles;
+        } else {
+            throw new NullPointerException("Vehicles is emptry, please try again.");
+        }
     }
     
     /**
