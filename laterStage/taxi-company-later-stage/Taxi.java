@@ -71,9 +71,13 @@ public class Taxi extends Vehicle implements DrawableItem
      * target location.
      * @param location The pickup location.
      */
-    public void setPickupLocation(Location location)
-    {
-        setTargetLocation(location);
+    public void setPickupLocation(Location location){
+        
+        if(location == null) {
+            throw new NullPointerException("Location is null, please try again.");
+        } else {
+            setTargetLocation(location);
+        }
     }
     
     /**
@@ -81,10 +85,14 @@ public class Taxi extends Vehicle implements DrawableItem
      * Set their destination as the target location.
      * @param passenger The passenger.
      */
-    public void pickup(Passenger passenger)
-    {
-        this.passenger = passenger;
-        setTargetLocation(passenger.getDestination());
+    public void pickup(Passenger passenger){
+        
+        if(passenger == null) {
+            throw new NullPointerException("Passenger is null, please try again.");
+        } else {
+            this.passenger = passenger;
+            setTargetLocation(passenger.getDestination());
+        }
     }
 
     /**
@@ -114,8 +122,12 @@ public class Taxi extends Vehicle implements DrawableItem
      * Return details of the taxi, such as where it is.
      * @return A string representation of the taxi.
      */
-    public String toString()
-    {
-        return "Taxi at " + getLocation();
+    public String toString(){
+        
+        if(getLocation() == null) {
+            throw new NullPointerException("Location is null, please try again.");
+        } else {
+            return "Taxi at " + getLocation();
+        }
     }
 }

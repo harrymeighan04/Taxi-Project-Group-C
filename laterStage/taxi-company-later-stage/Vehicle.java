@@ -46,9 +46,13 @@ public abstract class Vehicle implements Actor
      * Notify the company of our arrival at a
      * passenger's destination.
      */
-    public void notifyPassengerArrival(Passenger passenger)
-    {
-        company.arrivedAtDestination(this, passenger);
+    public void notifyPassengerArrival(Passenger passenger){
+        
+        if(passenger == null) {
+            throw new NullPointerException("Passenger is null, please try again.");
+        } else {
+            company.arrivedAtDestination(this, passenger);
+        }
     }
     
     /**
@@ -80,9 +84,13 @@ public abstract class Vehicle implements Actor
     /**
      * @return Where this vehicle is currently located.
      */
-    public Location getLocation()
-    {
-        return location;
+    public Location getLocation(){
+        
+        if(location == null){
+            throw new NullPointerException("Location is null, please try again.");
+        } else {
+            return location;
+        }
     }
     
     /**
