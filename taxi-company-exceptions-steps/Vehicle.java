@@ -33,7 +33,7 @@ public abstract class Vehicle implements Actor
         this.company = company;
         this.location = location;
         targetLocation = null;
-        idleCount = 0;
+        idleCount = 0;x
     }
     
     /**
