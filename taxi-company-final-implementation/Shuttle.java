@@ -1,10 +1,10 @@
 import java.util.List;
 import java.util.LinkedList;
-    
+
 /**
  * A shuttle is able to carry multiple passengers.
  * This implementation is non-functional.
- * 
+ *
  * @author David J. Barnes and Michael Kölling
  * @version 2016.02.29
  */
@@ -33,6 +33,8 @@ public class Shuttle extends Vehicle
      */
     public void act()
     {
+
+        incrementStepCount();
     }
 
     /**
@@ -43,27 +45,35 @@ public class Shuttle extends Vehicle
     {
         return true;
     }
-    
+
     /**
      * Receive a pickup location.
      * @param location The pickup location.
      */
-    public void setPickupLocation(Location location)
-    {
-        destinations.add(location);
-        chooseTargetLocation();
+    public void setPickupLocation(Location location){
+
+        if(location == null) {
+            throw new NullPointerException("Location is null, please try again.");
+        } else {
+            destinations.add(location);
+            chooseTargetLocation();
+        }
     }
-    
+
     /**
      * Receive a passenger.
      * Add their destination to the list.
      * @param passenger The passenger.
      */
-    public void pickup(Passenger passenger)
-    {
-        passengers.add(passenger);
-        destinations.add(passenger.getDestination());
-        chooseTargetLocation();
+    public void pickup(Passenger passenger){
+
+        if(passenger == null) {
+            throw new NullPointerException("Passenger is null, please try again.");
+        } else {
+            passengers.add(passenger);
+            destinations.add(passenger.getDestination());
+            chooseTargetLocation();
+        }
     }
 
     /**

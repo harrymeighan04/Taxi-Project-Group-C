@@ -36,8 +36,11 @@ public class Location
      * @return A location in a direct line from this to
      *         destination.
      */
-    public Location nextLocation(Location destination)
-    {
+    public Location nextLocation(Location destination){
+        
+        if(destination == null) {
+            throw new NullPointerException("Destination is null, please try again.");
+        }
         int destX = destination.getX();
         int destY = destination.getY();
         int offsetX = x < destX ? 1 : x > destX ? -1 : 0;
@@ -56,8 +59,11 @@ public class Location
      * @param destination The required destination.
      * @return The number of movement steps.
      */
-    public int distance(Location destination)
-    {
+    public int distance(Location destination){
+        
+        if(destination == null) {
+            throw new NullPointerException("Destination is null, please try again.");
+        }
         int xDist = Math.abs(destination.getX() - x);
         int yDist = Math.abs(destination.getY() - y);
         return Math.max(xDist, yDist);
@@ -68,8 +74,11 @@ public class Location
      * @return true if this location matches the other,
      *         false otherwise.
      */
-    public boolean equals(Object other)
-    {
+    public boolean equals(Object other){
+        
+        if(other == null){
+            throw new NullPointerException("Other object is null, please try again.");
+        }
         if(other instanceof Location) {
             Location otherLocation = (Location) other;
             return x == otherLocation.getX() &&

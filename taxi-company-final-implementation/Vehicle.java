@@ -13,6 +13,8 @@ public abstract class Vehicle implements Actor
     private Location targetLocation;
     // Record how often the vehicle has nothing to do.
     private int idleCount;
+    // Record total steps taken by taxi.
+    private int stepCount;
     
     /**
      * Constructor of class Vehicle
@@ -32,6 +34,7 @@ public abstract class Vehicle implements Actor
         this.location = location;
         targetLocation = null;
         idleCount = 0;
+        stepCount = 0;
     }
     
     /**
@@ -46,9 +49,13 @@ public abstract class Vehicle implements Actor
      * Notify the company of our arrival at a
      * passenger's destination.
      */
-    public void notifyPassengerArrival(Passenger passenger)
-    {
-        company.arrivedAtDestination(this, passenger);
+    public void notifyPassengerArrival(Passenger passenger){
+        
+        if(passenger == null) {
+            throw new NullPointerException("Passenger is null, please try again.");
+        } else {
+            company.arrivedAtDestination(this, passenger);
+        }
     }
     
     /**
@@ -80,9 +87,13 @@ public abstract class Vehicle implements Actor
     /**
      * @return Where this vehicle is currently located.
      */
-    public Location getLocation()
-    {
-        return location;
+    public Location getLocation(){
+        
+        if(location == null){
+            throw new NullPointerException("Location is null, please try again.");
+        } else {
+            return location;
+        }
     }
     
     /**
@@ -132,6 +143,19 @@ public abstract class Vehicle implements Actor
     {
         targetLocation = null;
     }
+    /**
+     * @return On how many steps this vehicle has been idle.
+     */
+    public void incrementIdleCount(){
+        idleCount++;
+    }
+
+    /**
+     * @return On how many steps this vehicle has taken.
+     */
+    public void incrementStepCount(){
+        stepCount++;
+    }
 
     /**
      * @return On how many steps this vehicle has been idle.
@@ -140,13 +164,21 @@ public abstract class Vehicle implements Actor
     {
         return idleCount;
     }
-    
+
     /**
-     * Increment the number of steps on which this vehicle
-     * has been idle.
+     * @return On how many total steps the vehicle has taken.
      */
-    public void incrementIdleCount()
+    public int getStepCount()
     {
-        idleCount++;
+        return stepCount;
+    }
+
+    /**
+     * @return the calculation of the time the vehicle
+     * has not been idle (i.e. how long it has been traveling to/from destinations).
+     */
+    public int getTravelCount()
+    {
+        return stepCount - idleCount;
     }
 }

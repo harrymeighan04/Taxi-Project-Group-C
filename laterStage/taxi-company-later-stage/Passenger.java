@@ -1,5 +1,6 @@
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import java.security.InvalidParameterException;
 
 /**
  * Model a passenger wishing to get from one
@@ -22,7 +23,10 @@ public class Passenger implements DrawableItem
      */
     public Passenger(Location pickup, Location destination)
     {
-        if(pickup == null) {
+        if(pickup.equals(destination)) {
+            throw new InvalidParameterException("Pickup & destination cannot be the same.");
+        }
+        if(pickup == null){
             throw new NullPointerException("Pickup location");
         }
         if(destination == null) {

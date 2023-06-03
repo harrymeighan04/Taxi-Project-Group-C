@@ -82,6 +82,7 @@ public class City
         
     /**
      * @return A string representation of the city.
+     * ### Do we need to add exceptions here? ###
      */
     public String toString()
     {
@@ -91,16 +92,25 @@ public class City
     /**
      * @return The width.
      */
-    public int getWidth()
-    {
+    public int getWidth() {
+        
+        if(width != 0) {
+            
         return width;
+        } else {
+            throw new NullPointerException("Width is null, please select more than 1.");
+        }
     }
     
     /**
      * @return The height.
      */
-    public int getHeight()
-    {
+    public int getHeight() {
+        
+        if(height != 0) {
         return height;
+        } else {
+            throw new NullPointerException("height is null, please select more than 1.");
+        }
     }
 }
